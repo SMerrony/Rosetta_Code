@@ -1,0 +1,16 @@
+name = "poker"
+description = "Poker Hand Analyser"
+version = "0.1.0-dev"
+
+authors = ["Stephen Merrony"]
+maintainers = ["Stephen Merrony <merrony@gmail.com>"]
+maintainers-logins = ["SMerrony"]
+licenses = "MIT OR Apache-2.0 WITH LLVM-exception"
+website = ""
+tags = []
+
+executables = ["poker"]
+
+[build-switches]
+# "*".ada_version = "Ada2022"
+#"*".style_checks = ["-gnaty-m"]
