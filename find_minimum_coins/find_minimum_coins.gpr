@@ -1,0 +1,22 @@
+with "config/find_minimum_coins_config.gpr";
+project Find_Minimum_Coins is
+
+   for Source_Dirs use ("src/", "config/");
+   for Object_Dir use "obj/" & Find_Minimum_Coins_Config.Build_Profile;
+   for Create_Missing_Dirs use "True";
+   for Exec_Dir use "bin";
+   for Main use ("find_minimum_coins.adb");
+
+   package Compiler is
+      for Default_Switches ("Ada") use Find_Minimum_Coins_Config.Ada_Compiler_Switches;
+   end Compiler;
+
+   package Binder is
+      for Switches ("Ada") use ("-Es"); --  Symbolic traceback
+   end Binder;
+
+   package Install is
+      for Artifacts (".") use ("share");
+   end Install;
+
+end Find_Minimum_Coins;

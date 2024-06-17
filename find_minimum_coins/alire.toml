@@ -1,0 +1,12 @@
+name = "find_minimum_coins"
+description = "Find minimum number of coins that make a given value (Rosetta Code)"
+version = "0.1.0-dev"
+
+authors = ["Stephen Merrony"]
+maintainers = ["Stephen Merrony <merrony@gmail.com>"]
+maintainers-logins = ["SMerrony"]
+licenses = "MIT OR Apache-2.0 WITH LLVM-exception"
+website = ""
+tags = []
+
+executables = ["find_minimum_coins"]
