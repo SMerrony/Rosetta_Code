@@ -1,0 +1,13 @@
+name = "abelian_sandpile"
+description = "Adbelian sandpile model task for Rosetta Code"
+version = "0.1.0-dev"
+
+authors = ["Stephen Merrony"]
+maintainers = ["Stephen Merrony <merrony@gmail.com>"]
+maintainers-logins = ["SMerrony"]
+licenses = "MIT OR Apache-2.0 WITH LLVM-exception"
+website = ""
+tags = []
+
+executables = ["abelian_sandpile"]
+

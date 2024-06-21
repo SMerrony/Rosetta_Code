@@ -1,0 +1,34 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "cppdbg",
+            "name": "Ada: Debug main - src/abelian_sandpile.adb",
+            "request": "launch",
+            "targetArchitecture": "x64",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/bin/abelian_sandpile",
+            "stopAtEntry": false,
+            "externalConsole": false,
+            "args": [6, 4],
+            "MIMode": "gdb",
+            "preLaunchTask": "ada: Build main - src/abelian_sandpile.adb",
+            "setupCommands": [
+                {
+                    "description": "Catch all Ada exceptions",
+                    "text": "catch exception",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "miDebuggerPath": "/usr/bin/gdb"
+        }
+    ]
+}
