@@ -5,9 +5,9 @@ with Ada.Strings.Unbounded;             use Ada.Strings.Unbounded;
 procedure Sierpinski_Square_Curve is
    Axiom    : constant String := "F+XF+F+XF";
    Rules    : constant String := "XF-F+F-XF+F+XF-F+F-X";
-   ORDER    : constant Positive := 4;
-   LENGTH   : constant Positive := 8;
-   X, Y     : Natural;
+   ORDER    : constant Positive := 5;
+   LENGTH   : constant Positive := 4;
+   X, Y     : Integer;
    Angle    : Integer := 0;
    SVG_File : File_Type;
    Production : Unbounded_String := To_Unbounded_String (Axiom);
