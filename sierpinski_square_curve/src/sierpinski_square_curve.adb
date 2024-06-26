@@ -7,7 +7,8 @@ procedure Sierpinski_Square_Curve is
    Rules    : constant String := "XF-F+F-XF+F+XF-F+F-X";
    ORDER    : constant Positive := 5;
    LENGTH   : constant Positive := 4;
-   X, Y     : Integer;
+   X        : Integer := (600 - LENGTH) / 2;
+   Y        : Integer := LENGTH;
    Angle    : Integer := 0;
    SVG_File : File_Type;
    Production : Unbounded_String := To_Unbounded_String (Axiom);
@@ -24,8 +25,6 @@ procedure Sierpinski_Square_Curve is
       return Prod;
    end Rewrite;
 begin
-   X := (600 - LENGTH) / 2;
-   Y := LENGTH;
    Create (SVG_File, Out_File, "sierpinski.svg");
    Put_Line (SVG_File, "<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'>");
    Put_Line (SVG_File, "<rect width='100%' height='100%' fill='white'/>");
