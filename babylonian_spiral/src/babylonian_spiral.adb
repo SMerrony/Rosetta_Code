@@ -14,6 +14,7 @@ procedure Babylonian_Spiral is
    Points : Points_Array := [1 => (0, 0), 2 => (0, 1), others => (0, 0)];
    Ante_Previous_Point, Previous_Point : Point;
    package Point_Vectors is new Ada.Containers.Vectors (Positive, Point);
+   use Point_Vectors;
    Point_Vector, PVC    : Point_Vectors.Vector;
    Min_Radius           : Integer := 1;
    Previous_Dist        : Fixed_10_4;  --  The previous distance which must be exceeded
@@ -72,8 +73,6 @@ procedure Babylonian_Spiral is
       return Pt1.X * (Pt2.Y - Pt3.Y) + Pt2.X * (Pt3.Y - Pt1.Y) + Pt3.X * (Pt1.Y - Pt2.Y) = 0;
    end Collinear;
 
-   use Point_Vectors;
-
 begin
    for Point_Ix in 3 .. Points'Last loop
       Ante_Previous_Point := Points (Point_Ix - 2);
@@ -109,8 +108,6 @@ begin
          if Tmp_Angle < -(Fixed_Pi) then
             Tmp_Angle := Tmp_Angle + (2.0 * Fixed_Pi);
          end if;
-         --  Put_Line (Pt'Image & " Angle:" & Tmp_Angle'Image &
-         --            " Area: " & Area_Triangle(Ante_Previous_Point, Previous_Point, Pt)'Image);
          if Tmp_Angle < Fixed_Pi and then Tmp_Angle > Max_Angle then
             Cand_Ix := Tmp_Ix;
             Max_Angle := Tmp_Angle;
@@ -125,13 +122,13 @@ begin
    Create (SVG_File, Out_File, "babylonian_spiral.svg");
    Put_Line (SVG_File, "<svg xmlns='http://www.w3.org/2000/svg' width='12000' height='15000'>");
    Put_Line (SVG_File, "<rect width='100%' height='100%' fill='white'/>");
-   X := 500 + Points(1).X;
-   Y := 10000 - Points(1).Y;
+   X := 500 + Points (1).X;
+   Y := 10000 - Points (1).Y;
    Put (SVG_File, "<path stroke-width='2' stroke='black' fill='none' d='M" &
-                       X'Image & "," & Y'Image);
+                  X'Image & "," & Y'Image);
    for Pt_Ix in 2 .. Points'Last loop
-      X := 500 + Points(Pt_Ix).X;
-      Y := 10000 - Points(Pt_Ix).Y;
+      X := 500 + Points (Pt_Ix).X;
+      Y := 10000 - Points (Pt_Ix).Y;
       Put (SVG_File, " L" & X'Image & "," & Y'Image);
    end loop;
    Put_Line (SVG_File, "'/>\n</svg>");
