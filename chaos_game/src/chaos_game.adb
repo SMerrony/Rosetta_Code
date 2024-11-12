@@ -4,13 +4,13 @@ with Ada.Numerics.Discrete_Random;
 with Ada.Numerics.Elementary_Functions; use Ada.Numerics.Elementary_Functions;
 with Easy_Graphics; use Easy_Graphics;
 
-procedure Sierpinski_Pentagon is
+procedure Chaos_Game is
    Img : Easy_Image := New_Image ((1, 1), (512, 512), WHITE);
-
-   procedure Chaos_Game (Image        : in out Easy_Image;
-                         Vertex_Count : Positive;
-                         Radius       : Float;
-                         Iters        : Positive) is
+   
+   procedure Chaos (Image        : in out Easy_Image;
+                    Vertex_Count : Positive;
+                    Radius       : Float;
+                    Iters        : Positive) is
       type Vertex_Array is array (1 .. Vertex_Count) of Point;
       Vertices : Vertex_Array;
       subtype Vertex_Range is Integer range 1 .. Vertex_Count;
@@ -37,9 +37,9 @@ procedure Sierpinski_Pentagon is
          Y := Y + Integer (Radius * Float (Vertices (V).Y - Y));
          Plot (Image, (X, Y), BLACK);
       end loop;
-   end Chaos_Game;
+   end Chaos;
 
 begin
-   Chaos_Game (Img, 5, 1.0 / ((1.0 + Sqrt (5.0)) / 2.0), 1_000_000);
-   Write_GIF (Img, "sierpinski_pentagon.gif");
-end Sierpinski_Pentagon;
+   Chaos (Img, 3, 0.5, 250_000);
+   Write_GIF (Img, "chaos_game.gif");
+end Chaos_Game;
